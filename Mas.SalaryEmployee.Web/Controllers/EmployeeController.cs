@@ -39,7 +39,12 @@ namespace Mas.SalaryEmployee.Web.Controllers
                     var isNumeric = int.TryParse(searchString, out var id);
 
                     if (isNumeric)
-                        result.Add(await this._httpClientService.GetAsync<Model.Dto.SalaryEmployee>($"{this._settings.Value.ApiUri}{Endpoint}/{id}"));
+                    {
+                        var salaryEmployee = await this._httpClientService.GetAsync<Model.Dto.SalaryEmployee>($"{this._settings.Value.ApiUri}{Endpoint}/{id}");
+
+                        if (salaryEmployee != null)
+                            result.Add(salaryEmployee);
+                    }                        
                 }
             }
             catch (Exception e)
