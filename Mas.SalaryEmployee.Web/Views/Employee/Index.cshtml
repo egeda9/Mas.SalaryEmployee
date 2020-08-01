@@ -1,0 +1,50 @@
+﻿@model Mas.SalaryEmployee.Web.Models.SalaryEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<form asp-controller="Employee" asp-action="Index" method="get">
+        <p>
+            Employee Id: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Get Employees" />
+        </p>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Employee")
+                </th>
+                <th>
+                    @Html.DisplayName("Role")
+                </th>
+                <th>
+                    @Html.DisplayName("Contract Type")
+                </th>
+                <th>
+                    @Html.DisplayName("Annual Salary")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Employees)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContractTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnnualSalary)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
