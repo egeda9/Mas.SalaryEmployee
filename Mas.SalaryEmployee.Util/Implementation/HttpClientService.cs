@@ -9,11 +9,11 @@ namespace Mas.SalaryEmployee.Util.Implementation
     public class HttpClientService : IHttpClientService
     {
         /// <summary>
-        /// 
+        /// Perform a GET HTTP operation 
         /// </summary>
-        /// <typeparam name="TOut"></typeparam>
-        /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <typeparam name="TOut">Object type to return</typeparam>
+        /// <param name="uri">Target uri</param>
+        /// <returns>Typed object</returns>
         public async Task<TOut> GetAsync<TOut>(string uri)
         {
             TOut result;
@@ -21,8 +21,7 @@ namespace Mas.SalaryEmployee.Util.Implementation
             try
             {
                 using var client = new HttpClient();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 using var response = await client.GetAsync(uri);
                 response.EnsureSuccessStatusCode();

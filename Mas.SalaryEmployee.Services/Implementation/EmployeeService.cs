@@ -20,9 +20,9 @@ namespace Mas.SalaryEmployee.Services.Implementation
         }
 
         /// <summary>
-        /// 
+        /// Get list of employees
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of SalaryEmployee</returns>
         public async Task<IList<Model.Dto.SalaryEmployee>> GetAsync()
         {
             var employees = await this._employeeData.GetAsync();
@@ -40,9 +40,10 @@ namespace Mas.SalaryEmployee.Services.Implementation
         }
 
         /// <summary>
-        /// 
+        /// Get employee by id
         /// </summary>
-        /// <returns></returns>
+        /// <param name="id">Employee id</param>
+        /// <returns>A SalaryEmployee</returns>
         public async Task<Model.Dto.SalaryEmployee> GetAsync(int id)
         {
             Model.Dto.SalaryEmployee result = null;

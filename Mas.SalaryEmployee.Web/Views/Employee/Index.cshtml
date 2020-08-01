@@ -5,46 +5,54 @@
 }
 
 <form asp-controller="Employee" asp-action="Index" method="get">
-        <p>
-            Employee Id: <input type="text" asp-for="SearchString" />
-            <input type="submit" value="Get Employees" />
-        </p>
-    </form>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder=" Employee Id" aria-label=" Employee Id" aria-describedby="basic-addon2" asp-for="SearchString" />
+        <div class="input-group-append">
+            <input class="btn btn-outline-secondary" type="submit" value="Get Employees" />
+        </div>
+    </div>
+</form>
 
-    <table class="table">
+<table id="dtSort" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
-            <tr>
-                <th>
-                    @Html.DisplayName("Employee")
-                </th>
-                <th>
-                    @Html.DisplayName("Role")
-                </th>
-                <th>
-                    @Html.DisplayName("Contract Type")
-                </th>
-                <th>
-                    @Html.DisplayName("Annual Salary")
-                </th>
-            </tr>
+        <tr>
+            <th class="th-sm">
+                @Html.DisplayName("Id")
+            </th>
+            <th class="th-sm">
+                @Html.DisplayName("Employee")
+            </th>
+            <th class="th-sm">
+                @Html.DisplayName("Role")
+            </th>
+            <th class="th-sm">
+                @Html.DisplayName("Contract Type")
+            </th>
+            <th class="th-sm">
+                @Html.DisplayName("Annual Salary")
+            </th>
+        </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Employees)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RoleName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractTypeName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AnnualSalary)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractTypeName)
+                </td>
+                <td>
+                    @String.Format("{0:c}", item.AnnualSalary)
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -5,6 +5,11 @@ namespace Mas.SalaryEmployee.Services.Factory.Implementation
 {
     public class HourlyBasedSalary : IContract
     {
+        /// <summary>
+        /// Get the Annual Salary based on the hourly salary
+        /// </summary>
+        /// <param name="employee">Employee</param>
+        /// <returns>List of SalaryEmployee</returns>
         public async Task<Model.Dto.SalaryEmployee> GetAnnualSalary(Employee employee)
         {
             return new Model.Dto.SalaryEmployee

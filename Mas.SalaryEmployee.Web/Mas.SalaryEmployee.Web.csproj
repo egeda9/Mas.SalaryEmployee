@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="jquery.datatables" Version="1.10.15" />
+    <PackageReference Include="jQuery.DataTables.Net" Version="1.10.5" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Mas.SalaryEmployee.Model\Mas.SalaryEmployee.Model.csproj" />
     <ProjectReference Include="..\Mas.SalaryEmployee.Util\Mas.SalaryEmployee.Util.csproj" />
   </ItemGroup>

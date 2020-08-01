@@ -14,6 +14,11 @@ namespace Mas.SalaryEmployee.Services.Factory.Implementation
             _monthlyBasedSalary = monthlyBasedSalary;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contractType"></param>
+        /// <returns></returns>
         public IContract Create(ContractType contractType)
         {
             return contractType switch
